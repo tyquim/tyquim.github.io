@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Saúde Exames</title>
+    <link rel="stylesheet" type="text/css" href="estilossaudeexames.css">
+</head>
+<body>
+    <div id="cabecalho" style="color:whitesmoke">
+        <div id="imagem">
+            <img src="imagens/cruz vermelha.jpg" width="130px">
+        </div>
+    <div id="titulo">
+        Saúde Exames
+    </div>
+    <span id="menu">
+        <a href="LAB1.html">Quem Somos | </a>
+        <a href="lab1Pag2.html">Marcaçao de Exames</a>
+
+    </span>
+    </div>
+    <div style="text-align: center;">
+        <h1>Exames</h1>
+    </div>
+    <div style="text-align: center;">
+    <table>
+        <thead>
+            <td>Exames</td>
+            <td>Preços</td>
+        </thead>
+        <tr>
+            <td>Hemograma Completo</td>
+            <td>R$ 5,00</td>
+        </tr>
+        <tr>
+            <td>Colesterol Total e Frações</td>
+            <td>R$ 2,50</td>
+        </tr>
+        <tr>
+            <td>TGO e TGP</td>
+            <td>R$ 5,00</td>
+        </tr>
+        <tr>
+            <td>Creatinina</td>
+            <td>R$ 3,50</td>
+        </tr>
+        <tr>
+            <td>Glicemia</td>
+            <td>R$ 4,00</td>
+        </tr>
+        <tr>
+            <td>Hemoglobina Glicada</td>
+            <td>R$ 5,00</td>
+        </tr>
+    </table>
+</div>
+<div style="text-align: center;">
+<form action="mailto:saudeexames@saude.com.br" method="POST" enctype="text/plain">
+    <label for="nome"><br>Nome<br></label>
+    <input type="text" id="nome" name="nome">
+    <label for="sobrenome"><br>Sobrenome<br></label>
+    <input type="text" id="sobrenome" name="nome">
+    <label for="datadenascimento"><br>Data de Nascimento<br></label>
+    <input type="date" id="datadenascimento" name="datadenascimento">
+    <label for="email"><br>E-mail<br></label>
+    <input type="email" id="email" name="email">
+</div>
+<div style="text-align: center;">
+    <label for="exames"><br>Selecione quais exames você gostaria de agendar<br><br></label>
+</div>
+
+    <input type="checkbox" id="exames1" name="exame" value="5">
+    <label for="exames1">Hemograma Completo</label>
+    <input type="checkbox" id="exames2" name="exame" value="2">
+    <label for="exames2">Colesterol Total e Frações</label>
+    <input type="checkbox" id="exames3" name="exame" value="5">
+    <label for="exames3">TGO e TGP</label>
+    <input type="checkbox" id="exames4" name="exame" value="3.5">
+    <label for="exames4">Creatinina</label>
+    <input type="checkbox" id="exames5" name="exame" value="4">
+    <label for="exames4">Glicemia</label>
+    <input type="checkbox" id="exames6" name="exame" value="5">
+    <label for="exames4">Hemoglobina Glicada<br><br></label>
+<div style="text-align: center;">
+    <button id="botao" style="text-align: center;">Verifique o valor total dos seus exames</button> 
+
+    <script>
+        function receberValoresdeCheckboxMarcados(name) {
+    const checkboxes = document.querySelectorAll('input[name="exame"]:checked');
+    let valores = [];
+    checkboxes.forEach((checkbox) => {
+        valores.push(checkbox.value);
+    });
+    var i;
+    var soma=0;
+    for(i=0;i<valores.length;i++) {
+        soma = soma+parseFloat(valores[i]);
+    }
+
+    return soma;
+}
+const botao = document.querySelector('#botao');
+botao.addEventListener('click', (event) => {
+    alert("O valor total dos seus exames é de: R$"+receberValoresdeCheckboxMarcados('exame').toFixed(2));
+});
+    </script>
+
+    <br>
+
+
+    <input type="submit" value="Enviar Dados">
+    <input type="reset" value="Limpar Dados">
+</div>
+
+</form>
+
+</body>
+</html>
